@@ -39,7 +39,7 @@
                                     }
                                     @if (planRecordTemplate.Supplies.Any())
                                     {
-                                        <i class="bi bi-shop ms-2" style="cursor:pointer;"onclick="orderPlanSupplies(@planRecordTemplate.Id)"></i>
+                                        <i class="bi bi-shop ms-2" style="cursor:pointer;" onclick="orderPlanSupplies(@planRecordTemplate.Id)"></i>
                                     }
                                     @if (planRecordTemplate.ImportMode == ImportMode.ServiceRecord)
                                     {
@@ -80,7 +80,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="text-center">
-                    <h4>@translator.Translate(userLanguage, "No templates are found.")</h4>
+                    <h4 class="text-body-secondary py-3">@translator.Translate(userLanguage, "No templates are found.")</h4>
                 </div>
             </div>
         </div>

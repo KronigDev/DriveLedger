@@ -9,7 +9,7 @@ html {
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.2rem var(--dl-focus-ring, rgba(27, 143, 214, 0.3));
 }
 
 html {
@@ -18,17 +18,8 @@ html {
 }
 
 .card {
-    border-radius: 4px;
-    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
-    transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
     cursor: pointer;
 }
-
-
-    .card:hover {
-        transform: scale(1.05);
-        box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
-    }
 
 .vehicleDetailTabContainer {
     overflow-y: auto;
@@ -253,8 +244,8 @@ html {
 }
 
 .btn-check:checked + .dropdown-item, :not(.btn-check) + .dropdown-item:active {
-    color: #fff;
-    background-color: #0d6efd;
+    color: var(--bs-primary-text-emphasis, #fff);
+    background-color: var(--bs-primary-bg-subtle, #0d6efd);
 }
 
 .lubelogger-navbar-container {
@@ -328,7 +319,7 @@ html {
     }
 
     .lubelogger-mobile-nav > ul > li > .nav-link.active {
-        color: #6ea8fe;
+        color: var(--dl-link, #6ea8fe);
     }
 
     .lubelogger-record-add {
@@ -751,7 +742,7 @@ html[data-bs-theme="light"] .frosted {
 }
 
 .garage-item.garage-active .card {
-    border-color: #6ea8fe;
+    border-color: var(--dl-brand-blue, #6ea8fe);
 }
 
 .inspection-value {
@@ -770,7 +761,7 @@ html[data-bs-theme="light"] .frosted {
     }
 
         .inspection-value.inspection-value-selected.inspection-value-fail {
-            border-color: #dc3545;
+            border-color: var(--bs-danger, #dc3545);
         }
 
 .swal2-popup.swal2-modal {

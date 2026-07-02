@@ -30,7 +30,7 @@
     </form>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-danger" onclick="deleteCalendarReminderRecord(@Model.Id)" style="margin-right:auto;">@translator.Translate(userLanguage, "Delete")</button>
+    <button type="button" class="btn btn-danger me-auto" onclick="deleteCalendarReminderRecord(@Model.Id)">@translator.Translate(userLanguage, "Delete")</button>
     <button type="button" class="btn btn-secondary" onclick="hideCalendarReminderModal()">@translator.Translate(userLanguage, "Close")</button>
     @if (Model.IsRecurring && (Model.Urgency == ReminderUrgency.VeryUrgent || Model.Urgency == ReminderUrgency.PastDue))
     {

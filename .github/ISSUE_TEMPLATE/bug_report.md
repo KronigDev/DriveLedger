@@ -31,4 +31,4 @@ Please make sure you have performed the following steps before opening a new bug
 
 **Acknowledgment**
 
-- [ ] I acknowledge that LubeLogger is a side project and that development efforts are entirely voluntary. I do not expect the core maintainers to respond to this issue, and I will not hound or chase them regarding this issue or any other issues.
+- [ ] I acknowledge that DriveLedger is a side project and that development efforts are entirely voluntary. I do not expect the core maintainers to respond to this issue, and I will not hound or chase them regarding this issue or any other issues.

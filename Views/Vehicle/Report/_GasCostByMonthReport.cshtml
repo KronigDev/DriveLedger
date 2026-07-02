@@ -37,14 +37,16 @@
                                 label: decodeHTMLEntities('@translator.Translate(userLanguage, "Expenses by Month")'),
                                 backgroundColor: barGraphColors,
                                 data: barGraphData,
+                                borderRadius: 4,
                                 order: 1,
                                 yAxisID: 'y',
                             },
                             {
                                 label: decodeHTMLEntities('@translator.Translate(userLanguage, "Distance Traveled by Month")'),
                                 data: lineChartData,
-                                borderColor: useDarkMode ? "#fff" : "#000",
-                                backgroundColor: useDarkMode ? "#000" : "#fff",
+                                borderColor: useDarkMode ? "#e9ecef" : "#16191d",
+                                backgroundColor: useDarkMode ? "#161b21" : "#ffffff",
+                                borderWidth: 2,
                                 type: 'line',
                                 order: 0,
                                 yAxisID: 'y1',
@@ -63,33 +65,43 @@
                         plugins: {
                             title: {
                                 display: true,
-                                color: useDarkMode ? "#fff" : "#000",
+                                color: useDarkMode ? "#e9ecef" : "#16191d",
+                                font: { weight: 600 },
                                 text: decodeHTMLEntities('@translator.Translate(userLanguage, "Expenses and Distance Traveled by Month")')
                             },
                             legend: {
                                 display: false,
                                 labels: {
-                                    color: useDarkMode ? "#fff" : "#000"
+                                    color: useDarkMode ? "#9aa3af" : "#5a6169"
                                 }
                             }
                         },
                         scales: {
                             y: {
                                 beginAtZero: true,
+                                grid: {
+                                    color: useDarkMode ? "rgba(233, 236, 239, 0.07)" : "rgba(22, 25, 29, 0.06)"
+                                },
                                 ticks: {
-                                    color: useDarkMode ? "#fff" : "#000"
+                                    color: useDarkMode ? "#9aa3af" : "#5a6169"
                                 }
                             },
                             y1: {
                                 beginAtZero: true,
                                 position: 'right',
+                                grid: {
+                                    drawOnChartArea: false
+                                },
                                 ticks: {
-                                    color: useDarkMode ? "#fff" : "#000"
+                                    color: useDarkMode ? "#9aa3af" : "#5a6169"
                                 }
                             },
                             x: {
+                                grid: {
+                                    display: false
+                                },
                                 ticks: {
-                                    color: useDarkMode ? "#fff" : "#000"
+                                    color: useDarkMode ? "#9aa3af" : "#5a6169"
                                 }
                             }
                         }

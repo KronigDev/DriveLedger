@@ -54,6 +54,7 @@
                             {
                                 label: decodeHTMLEntities('@translator.Translate(userLanguage, "Fuel Mileage by Month")'),
                                 backgroundColor: barGraphColors,
+                                borderRadius: 4,
                                 data: barGraphData
                             }
                         ]
@@ -64,13 +65,14 @@
                         plugins: {
                             title: {
                                 display: true,
-                                color: useDarkMode ? "#fff" : "#000",
+                                color: useDarkMode ? "#e9ecef" : "#16191d",
+                                font: { weight: 600 },
                                 text: decodeHTMLEntities('@($"{translator.Translate(userLanguage, "Fuel Mileage by Month")}({Model.Unit})")')
                             },
                             legend: {
                                 display: false,
                                 labels: {
-                                    color: useDarkMode ? "#fff" : "#000"
+                                    color: useDarkMode ? "#9aa3af" : "#5a6169"
                                 }
                             }
                         },
@@ -79,14 +81,20 @@
                                 beginAtZero: false,
                                 max: Math.ceil(decodeHTMLEntities('@(cleanedMax)')),
                                 min: Math.floor(decodeHTMLEntities('@(cleanedMin)')),
+                                grid: {
+                                    color: useDarkMode ? "rgba(233, 236, 239, 0.07)" : "rgba(22, 25, 29, 0.06)"
+                                },
                                 ticks: {
-                                    color: useDarkMode ? "#fff" : "#000",
+                                    color: useDarkMode ? "#9aa3af" : "#5a6169",
                                     stepSize: Math.ceil(decodeHTMLEntities('@(stepSize)'))
                                 }
                             },
                             x: {
+                                grid: {
+                                    display: false
+                                },
                                 ticks: {
-                                    color: useDarkMode ? "#fff" : "#000"
+                                    color: useDarkMode ? "#9aa3af" : "#5a6169"
                                 }
                             }
                         }

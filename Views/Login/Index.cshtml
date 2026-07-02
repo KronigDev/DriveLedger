@@ -13,9 +13,9 @@
 @section Scripts {
     <script src="~/js/login.js?v=@StaticHelper.VersionNumber"></script>
 }
-<div class="no-top-pad container d-flex align-items-center justify-content-center" style="height:100dvh">
-    <div class="border rounded shadow p-5">
-        <div style="max-width:204px;">
+<div class="no-top-pad container d-flex align-items-center justify-content-center dl-auth-bg" style="height:100dvh">
+    <div class="border rounded shadow p-5 dl-auth-card">
+        <div class="dl-auth-inner">
             <img src="@config.GetLogoUrl()" class="lubelogger-logo" />
             <div class="form-group">
                 <label for="inputUserName">@translator.Translate(userLanguage, "Username")</label>
@@ -35,7 +35,7 @@
                 <label class="form-check-label" for="inputPersistent">@translator.Translate(userLanguage, "Remember Me")</label>
             </div>
             <div class="d-grid">
-                <button type="button" class="btn btn-warning mt-2" onclick="performLogin()"><i class="bi bi-box-arrow-in-right me-2"></i>@translator.Translate(userLanguage, "Login")</button>
+                <button type="button" class="btn btn-primary mt-2" onclick="performLogin()"><i class="bi bi-box-arrow-in-right me-2"></i>@translator.Translate(userLanguage, "Login")</button>
             </div>
             @if (!string.IsNullOrWhiteSpace(openIdConfigName))
             {

@@ -1,52 +1,100 @@
-![image](https://github.com/hargata/lubelog/assets/155338622/545debcd-d80a-44da-b892-4c652ab0384a)
+<p align="center">
+  <img src="wwwroot/defaults/lubelogger_logo_small.png" alt="DriveLedger logo" width="96" height="96">
+</p>
 
-Self-Hosted, Open-Source, Web-Based Vehicle Maintenance and Fuel Mileage Tracker
+<h1 align="center">DriveLedger</h1>
 
-Website: https://lubelogger.com
+<p align="center"><b>DriveLedger — a beautifully redesigned, self-hosted vehicle maintenance & fuel tracker.</b></p>
 
-## Why
-Because nobody should have to deal with a homemade spreadsheet or a shoebox full of receipts when it comes to vehicle maintenance.
+<p align="center">
+  DriveLedger is a visual redesign of <a href="https://github.com/hargata/lubelog">LubeLogger</a>:
+  same rock-solid functionality, wrapped in a clean, modern dashboard UI with first-class light and dark modes.
+</p>
 
-## Showcase
-[Promotional Brochure](https://lubelogger.com/brochure.pdf)
+---
 
-[Screenshots](/docs/screenshots.md)
+## Screenshots
 
-## Demo
-Try it out before you download it! The live demo resets every 20 minutes.
+| Light | Dark |
+| --- | --- |
+| ![Garage, light mode](docs/screenshots/garage-light.png) | ![Garage, dark mode](docs/screenshots/garage-dark.png) |
+| ![Dashboard, light mode](docs/screenshots/dashboard-light.png) | ![Dashboard, dark mode](docs/screenshots/dashboard-dark.png) |
+| ![Fuel tracking, light mode](docs/screenshots/fuel-light.png) | ![Fuel tracking, dark mode](docs/screenshots/fuel-dark.png) |
 
-[Live Demo](https://demo.lubelogger.com) Login using username "test" and password "1234"
+## What's different from LubeLogger?
 
-## Download
-LubeLogger is available as both a Docker Image and a Windows Standalone Executable.
+Purely the looks. DriveLedger keeps LubeLogger's features, data model, API and configuration untouched and adds:
 
-Read this [Getting Started Guide](https://docs.lubelogger.com/Installation/Getting%20Started) on how to download either of them
+- A complete design system built on CSS custom properties: consistent color scales, typography, spacing, radii and shadows across every page.
+- Fully maintained **light and dark themes**, including charts, dialogs, date pickers and the mobile UI.
+- Self-hosted [Inter](https://github.com/rsms/inter) typography, bundled locally. No CDN calls, works fully offline.
+- Accessible, colorblind-checked chart palettes and WCAG AA checked interactive colors.
+- Fresh branding: logo, favicons, PWA icons and splash screen.
 
-### Kubernetes Deployment
-[Helm Chart](https://artifacthub.io/packages/helm/anza-labs/lubelogger) provided by [Anza-Labs](https://github.com/anza-labs)
+Because functional identifiers were deliberately left alone (environment variables such as `LUBELOGGER_*`, config keys, database schema, cookie names, API routes), DriveLedger is a **drop-in replacement** for an existing LubeLogger deployment: point it at the same data volume and config and it just works.
 
-### Need Help?
-[Documentation](https://docs.lubelogger.com/)
+## Features
 
-[Troubleshooting Guide](https://docs.lubelogger.com/Installation/Troubleshooting)
+- Track multiple vehicles in a garage overview with service records, repairs, upgrades, fuel economy, taxes, odometer history, notes, supplies, equipment and inspections.
+- Reminders with urgency levels, recurring schedules and a calendar view.
+- Fuel economy tracking with configurable units (MPG, l/100km, UK MPG and more).
+- Dashboards and reports with charts, cost breakdowns and printable vehicle history.
+- Maintenance planner (kanban board), kiosk mode for wall displays, document attachments, custom extra fields.
+- Multi-user support with authentication, OpenID Connect, collaborators and households.
+- CSV import/export, automated backups, webhooks, translations into many languages.
+- LiteDB by default, PostgreSQL optional. Runs anywhere .NET runs, ships as a Docker image.
 
-[Search Existing Issues](https://github.com/hargata/lubelog/issues)
+## Quickstart
 
-## Dependencies
-- [Bootstrap](https://github.com/twbs/bootstrap)
-- [LiteDB](https://github.com/mbdavid/litedb)
-- [Npgsql](https://github.com/npgsql/npgsql)
-- [Bootstrap-DatePicker](https://github.com/uxsolutions/bootstrap-datepicker)
-- [SweetAlert2](https://github.com/sweetalert2/sweetalert2)
-- [CsvHelper](https://github.com/JoshClose/CsvHelper)
-- [Chart.js](https://github.com/chartjs/Chart.js)
-- [Drawdown](https://github.com/adamvleggett/drawdown)
-- [MailKit](https://github.com/jstedfast/MailKit)
-- [Masonry](https://github.com/desandro/masonry)
-- [QRCode-Generator](https://github.com/kazuhikoarase/qrcode-generator)
+### Docker Compose (recommended)
+
+There is no published DriveLedger container image, so the bundled compose file builds it locally:
+
+```bash
+git clone https://github.com/KronigDev/DriveLedger.git
+cd DriveLedger
+docker compose up -d --build
+```
+
+The app is then available at http://localhost:8080. Data is persisted in the `data` volume.
+
+For PostgreSQL, adapt `docker-compose.postgresql.yml` the same way (replace the `image:` of the `app` service with `build: .`).
+
+### Plain Docker
+
+```bash
+docker build -t driveledger:latest .
+docker run -d -p 8080:8080 -v driveledger_data:/App/data driveledger:latest
+```
+
+### From source
+
+Requires the [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0).
+
+```bash
+git clone https://github.com/KronigDev/DriveLedger.git
+cd DriveLedger
+dotnet run
+```
+
+The app starts on http://localhost:5000 and creates its `data/` folder on first run.
+
+## Configuration
+
+DriveLedger is configured exactly like LubeLogger. All settings, environment variables (including the `LUBELOGGER_*` family, kept for drop-in compatibility) and reverse-proxy setups are documented in the upstream docs: [docs.lubelogger.com](https://docs.lubelogger.com).
+
+Highlights:
+
+- `POSTGRES_CONNECTION` switches storage from LiteDB to PostgreSQL.
+- Authentication is off by default; enable it in Settings or via config.
+- `LUBELOGGER_LOGO_URL` / `LUBELOGGER_LOGO_SMALL_URL` let you override the bundled logo.
+
+## Attribution
+
+DriveLedger is a fork of [LubeLogger](https://github.com/hargata/lubelog) by [Hargata Softworks](https://github.com/hargata), licensed under the [MIT License](LICENSE). The functionality is unchanged from upstream; this fork contributes a visual redesign and rebranding only.
+
+Huge thanks to Hargata Softworks and the LubeLogger community for building and maintaining such a complete, pragmatic tool. If DriveLedger is useful to you, please consider [supporting the upstream project on Patreon](https://www.patreon.com/LubeLogger).
 
 ## License
-MIT
 
-## Support
-To support this project, please see [Funding](https://docs.lubelogger.com/Misc/Funding)
+[MIT](LICENSE) — same license as upstream LubeLogger.

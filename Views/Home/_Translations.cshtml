@@ -15,7 +15,7 @@
         <div class="form-group" style="max-height:50vh; overflow-x:hidden; overflow-y:scroll;">
             @foreach(var translation in Model.Africa)
             {
-                <div class="row mb-2">
+                <div class="row mb-2 align-items-center">
                     <div class="col-10">@StaticHelper.GetTranslationName(translation)</div>
                     <div class="col-2">
                         <button type="button" class="btn btn-primary" onclick="downloadTranslation('Africa','@translation')"><i class="bi bi-download"></i></button>
@@ -24,7 +24,7 @@
             }
             @foreach (var translation in Model.Asia)
             {
-                <div class="row mb-2">
+                <div class="row mb-2 align-items-center">
                     <div class="col-10">@StaticHelper.GetTranslationName(translation)</div>
                     <div class="col-2">
                         <button type="button" class="btn btn-primary" onclick="downloadTranslation('Asia','@translation')"><i class="bi bi-download"></i></button>
@@ -33,7 +33,7 @@
             }
             @foreach (var translation in Model.Europe)
             {
-                <div class="row mb-2">
+                <div class="row mb-2 align-items-center">
                     <div class="col-10">@StaticHelper.GetTranslationName(translation)</div>
                     <div class="col-2">
                         <button type="button" class="btn btn-primary" onclick="downloadTranslation('Europe','@translation')"><i class="bi bi-download"></i></button>
@@ -42,7 +42,7 @@
             }
             @foreach (var translation in Model.NorthAmerica)
             {
-                <div class="row mb-2">
+                <div class="row mb-2 align-items-center">
                     <div class="col-10">@StaticHelper.GetTranslationName(translation)</div>
                     <div class="col-2">
                         <button type="button" class="btn btn-primary" onclick="downloadTranslation('NorthAmerica','@translation')"><i class="bi bi-download"></i></button>
@@ -51,7 +51,7 @@
             }
             @foreach (var translation in Model.SouthAmerica)
             {
-                <div class="row mb-2">
+                <div class="row mb-2 align-items-center">
                     <div class="col-10">@StaticHelper.GetTranslationName(translation)</div>
                     <div class="col-2">
                         <button type="button" class="btn btn-primary" onclick="downloadTranslation('SouthAmerica','@translation')"><i class="bi bi-download"></i></button>
@@ -60,7 +60,7 @@
             }
             @foreach (var translation in Model.Oceania)
             {
-                <div class="row mb-2">
+                <div class="row mb-2 align-items-center">
                     <div class="col-10">@StaticHelper.GetTranslationName(translation)</div>
                     <div class="col-2">
                         <button type="button" class="btn btn-primary" onclick="downloadTranslation('Oceania','@translation')"><i class="bi bi-download"></i></button>

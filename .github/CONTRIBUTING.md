@@ -3,14 +3,14 @@
 ## Asking Questions
 Before submitting a question, please check the [Troubleshooting Guide](https://docs.lubelogger.com/Installation/Troubleshooting) and search through existing issues.
 
-Ideally, the Issues tab should only consist of bug reports and feature requests instead of debugging your LubeLogger installation.
+Ideally, the Issues tab should only consist of bug reports and feature requests instead of debugging your DriveLedger installation.
 
 ## Feature Requests
 Feature Requests are cool, but we do want to avoid bloat and scope/feature creep.
 
 Read [this](https://github.com/hargata/lubelog/wiki/Scope-and-Purpose) to better understand the scope and purpose of this project.
 
-LubeLogger is a Vehicle Maintenance and Fuel Mileage Tracker. 
+DriveLedger is a Vehicle Maintenance and Fuel Mileage Tracker. 
 It is not and should not be used for the following:
 - Project Management Software(e.g.: Jira)
 - Budget Management(e.g: YNAB/Actual)

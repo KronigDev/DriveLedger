@@ -70,25 +70,25 @@
             <button type="button" data-column="backlog" style="overflow:hidden;" class="btn btn-outline-secondary swimlane-dropzone col-2 flex-grow-1" onclick="hideOtherSwimLanes(this)" ondragover="dragOver(event, this)" ondragleave="planDragLeave(this)" ondrop="dropBox(event, 'Backlog')">
                 <span class="text-wrap">
                     <span>@translator.Translate(userLanguage, "Planned")</span>
-                    <span class="badge" style="background-color:rgba(0, 0, 0, 0.6);">@backLogItems.Count()</span>
+                    <span class="badge text-bg-secondary">@backLogItems.Count()</span>
                 </span>
             </button>
             <button type="button" data-column="inprogress" style="overflow:hidden;" class="btn btn-outline-secondary swimlane-dropzone col-2 flex-grow-1" onclick="hideOtherSwimLanes(this)" ondragover="dragOver(event, this)" ondragleave="planDragLeave(this)" ondrop="dropBox(event, 'InProgress')">
                 <span class="text-wrap">
                 <span>@translator.Translate(userLanguage, "Doing")</span>
-                <span class="badge" style="background-color:rgba(0, 0, 0, 0.6);">@inProgressItems.Count()</span>
+                <span class="badge text-bg-secondary">@inProgressItems.Count()</span>
                 </span>
             </button>
             <button type="button" data-column="testing" style="overflow:hidden;" class="btn btn-outline-secondary swimlane-dropzone col-2 flex-grow-1" onclick="hideOtherSwimLanes(this)" ondragover="dragOver(event, this)" ondragleave="planDragLeave(this)" ondrop="dropBox(event, 'Testing')">
                 <span class="text-wrap">
                 <span>@translator.Translate(userLanguage, "Testing")</span>
-                <span class="badge" style="background-color:rgba(0, 0, 0, 0.6);">@testingItems.Count()</span>
+                <span class="badge text-bg-secondary">@testingItems.Count()</span>
                 </span>
             </button>
             <button type="button" data-column="done" style="overflow:hidden;" class="btn btn-outline-secondary swimlane-dropzone col-2 flex-grow-1" onclick="hideOtherSwimLanes(this)" ondragover="dragOver(event, this)" ondragleave="planDragLeave(this)" ondrop="dropBox(event, 'Done')">
                 <span class="text-wrap">
                 <span>@translator.Translate(userLanguage, "Done")</span>
-                <span class="badge" style="background-color:rgba(0, 0, 0, 0.6);">@doneItems.Count()</span>
+                <span class="badge text-bg-secondary">@doneItems.Count()</span>
                 </span>
             </button>
         </div>

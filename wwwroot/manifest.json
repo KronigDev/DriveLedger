@@ -1,7 +1,11 @@
 {
-  "name": "LubeLogger",
+  "name": "DriveLedger",
+  "short_name": "DriveLedger",
+  "description": "A beautifully redesigned, self-hosted vehicle maintenance and fuel tracker.",
   "start_url": "/",
   "display": "standalone",
+  "theme_color": "#f6f7f9",
+  "background_color": "#f6f7f9",
   "icons": [
     {
       "src": "/defaults/lubelogger_icon_72.png",

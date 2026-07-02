@@ -1722,7 +1722,7 @@
          },
          {
             "path":"/api/info",
-            "description":"Gets server information for LubeLogger instance",
+            "description":"Gets server information for DriveLedger instance",
             "methodType":0,
             "queryParams":[
 
@@ -1730,7 +1730,7 @@
          },
          {
             "path":"/api/version",
-            "description":"Gets current version for LubeLogger instance",
+            "description":"Gets current version for DriveLedger instance",
             "methodType":0,
             "queryParams":[
                {

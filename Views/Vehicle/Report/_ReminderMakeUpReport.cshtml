@@ -25,7 +25,9 @@
                     datasets: [
                         {
                             label: decodeHTMLEntities('@translator.Translate(userLanguage, "Reminders by Category")'),
-                            backgroundColor: ["#488f31", "#ffa600", "#de425b", "#cccccc"],
+                            backgroundColor: useDarkMode ? ["#55ab29", "#c98500", "#e05252", "#7f8a96"] : ["#4a9e2e", "#eda100", "#d03b3b", "#98a2ae"],
+                            borderColor: useDarkMode ? "#161b21" : "#ffffff",
+                            borderWidth: 2,
                             data: [
                                 @Model.NotUrgentCount,
                                 @Model.UrgentCount,
@@ -42,13 +44,17 @@
                         legend: {
                             position: "bottom",
                             labels: {
-                                color: useDarkMode ? "#fff" : "#000"
+                                color: useDarkMode ? "#9aa3af" : "#5a6169",
+                                usePointStyle: true,
+                                pointStyle: "circle",
+                                boxHeight: 7
                             }
                         },
                         title: {
                             display: true,
                             text: decodeHTMLEntities('@translator.Translate(userLanguage, "Reminders by Urgency")'),
-                            color: useDarkMode ? "#fff" : "#000"
+                            color: useDarkMode ? "#e9ecef" : "#16191d",
+                            font: { weight: 600 }
                         },
                     }
                 }

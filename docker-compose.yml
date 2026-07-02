@@ -2,7 +2,9 @@
 
 services:
   app:
-    image: ghcr.io/hargata/lubelogger:latest
+    # DriveLedger has no published container image (yet) — build it locally.
+    build: .
+    image: driveledger:latest
     restart: unless-stopped
     # volumes used to keep data persistent
     volumes:
