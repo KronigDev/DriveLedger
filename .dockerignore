@@ -1,0 +1,7 @@
+# keep local state and build artifacts out of the image
+data/
+bin/
+obj/
+.git/
+.vs/
+docs/
