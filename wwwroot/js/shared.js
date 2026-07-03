@@ -1969,48 +1969,14 @@ function handleEndFileDrop(event) {
     }
 }
 function bindNavBarResize() {
-    let resizeObserver = new ResizeObserver((elems) => {
-        let targetElem = $(elems[0].target);
-        checkNavBarOverflow();
-    });
-    resizeObserver.observe(document.querySelector('.driveledger-navbar'));
+    //DriveLedger sidebar shell: navigation is vertical and scrollable, so it can never
+    //overflow horizontally. The legacy collapse-into-dots behavior is disabled;
+    //all tabs stay visible and reachable at every viewport size.
+    checkNavBarOverflow();
 }
 function checkNavBarOverflow() {
-    //check height
-    $('.driveledger-navbar > .driveledger-tab > .nav-item').show();
-    $('.nav-item-more > ul > li').hide(); //hide collapsed items
-    //check if icons loaded
-    let iconWidth = `${$('.driveledger-navbar > .driveledger-tab > .nav-item .bi').width()}px`;
-    let iconFontSize = $('.driveledger-navbar > .driveledger-tab > .nav-item .bi').css('font-size');
-    const removeNavbarItems = () => {
-        let navbarHeight = $('.driveledger-navbar').height();
-        if (navbarHeight > 48) {
-            //get all elems in the nav
-            let sortedElems = $('.driveledger-navbar > .driveledger-tab > .nav-item:visible:not(".nav-item-persist")').toArray().sort((a, b) => {
-                let orderA = $(a).css('order');
-                let orderB = $(b).css('order');
-                return orderA - orderB;
-            });
-            for (let i = sortedElems.length - 1; i > -1; i--) {
-                navbarHeight = $('.driveledger-navbar').height();
-                if (navbarHeight > 48) {
-                    $(sortedElems[i]).hide(); //hide elem.
-                    let hiddenButtonId = $(sortedElems[i]).find('button').attr('id');
-                    let buttonToShow = $(`.nav-item-more > ul > li > #${hiddenButtonId}`).closest('li');
-                    buttonToShow.show();
-                } else {
-                    break;
-                }
-            }
-        } else {
-            $('.nav-item-more').hide();
-        }
-    }
-    if (iconWidth != iconFontSize) {
-        setTimeout(() => { checkNavBarOverflow(); }, 500);
-    } else {
-        removeNavbarItems()
-    }
+    $('.driveledger-navbar > .driveledger-tab > .nav-item:not(".nav-item-more")').show();
+    $('.nav-item-more').hide();
 }
 function openAttachmentPreview(fileName, fileLocation) {
     $.get('/Files/PreviewFile', { fileName: fileName, fileLocation: fileLocation }, function (data) {

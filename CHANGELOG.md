@@ -32,6 +32,17 @@ complete visual redesign and rebranding.
 
 ### Changed
 
+- Complete information-architecture redesign of the app shell: a fixed sidebar
+  navigation on desktop (logo on top, vertical tab list, Settings and account
+  pinned to the bottom) replaces the old horizontal top bar; pages get content
+  headers (vehicle identity with edit action, garage/calendar/settings titles);
+  the Settings page is regrouped into titled section cards (Appearance,
+  Behavior, Fuel & Units, Automation, Modules, Visible Tabs, Backups, Server);
+  the dashboard's headline numbers render as stat-tile cards. Mobile keeps the
+  top bar + full-screen menu paradigm with the new page headers. The legacy
+  collapse-tabs-into-dots overflow behavior was removed since a vertical nav
+  cannot overflow; every tab stays visible and functional.
+
 - All "LubeLogger" identifiers now read "DriveLedger": page titles, PWA name,
   About section, report footers, email subjects/bodies (translation keys and
   values), API docs page, console banner, internal CSS class names

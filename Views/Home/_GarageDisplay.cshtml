@@ -11,6 +11,10 @@
     var renderTopRow = tagsExist || searchExist;
 }
 <div id="garageContainer">
+    <div class="dl-settings-head">
+        <h4 class="mb-0">@translator.Translate(userLanguage, "Garage")</h4>
+        <small class="text-secondary">@($"{Model.Count()} {translator.Translate(userLanguage, "Vehicles")}")</small>
+    </div>
 @if (renderTopRow)
 {
     <div class='row'>

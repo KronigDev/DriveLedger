@@ -471,6 +471,11 @@ html[data-bs-theme="light"] .btn-adaptive {
 /* ---------------------------------------------------------------------------
    6. Navbar, tabs, dropdowns
    ------------------------------------------------------------------------- */
+/* The app shell: a fixed left sidebar on desktop (>=576px), the classic fixed
+   top bar + hamburger on mobile (<576px). The markup is the same nav structure
+   the JS relies on — only its geometry changes per breakpoint. */
+
+/* mobile top bar keeps the frosted treatment */
 .driveledger-navbar-container.frosted {
     background-color: var(--dl-frosted-bg);
     backdrop-filter: blur(14px) saturate(1.6);
@@ -497,15 +502,155 @@ html[data-bs-theme="light"] .btn-adaptive {
     font-weight: 600;
 }
 
-.driveledger-tab .nav-link.active::after {
-    content: "";
-    position: absolute;
-    left: 0.55rem;
-    right: 0.55rem;
-    bottom: -1px;
-    height: 2px;
-    border-radius: 999px;
-    background: var(--dl-gradient);
+/* ---- desktop: sidebar ---- */
+@media (min-width: 576px) {
+    :root { --dl-sidebar-w: 236px; }
+
+    .driveledger-navbar-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: var(--dl-sidebar-w);
+        height: 100dvh;
+        padding: 1rem 0.75rem 0.75rem;
+        overflow-y: auto;
+        overflow-x: hidden;
+        z-index: 1021;
+    }
+
+    .driveledger-navbar-container.frosted {
+        background-color: var(--dl-surface);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        border-bottom: none;
+        border-right: 1px solid var(--dl-border);
+    }
+
+    .driveledger-navbar-container hr { display: none; }
+
+    .driveledger-navbar-container > .row {
+        --bs-gutter-x: 0;
+        margin: 0 !important;
+        height: 100%;
+    }
+
+    .driveledger-navbar {
+        flex-direction: column;
+        align-items: stretch !important;
+        height: 100%;
+        min-height: 100%;
+    }
+
+    /* logo / vehicle-thumbnail block at the top */
+    .driveledger-navbar > div[onclick] {
+        padding: 0.125rem 0.4rem 0.875rem;
+        margin-right: 0 !important;
+    }
+
+    .driveledger-navbar > div[onclick] .driveledger-logo { height: 34px; }
+
+    /* the tab list becomes a vertical nav */
+    .driveledger-tab {
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .driveledger-tab > .nav-item { width: 100%; }
+
+    .driveledger-tab .nav-link,
+    .driveledger-tab .nav-link.resizable-nav-link {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        text-align: left;
+        padding: 0.45rem 0.65rem !important;
+        font-size: 0.9rem;
+        border-radius: var(--dl-radius);
+        white-space: nowrap;
+    }
+
+    .driveledger-tab .nav-link > .bi,
+    .driveledger-tab .nav-link > .reminderBellDiv {
+        width: 1.4rem;
+        flex-shrink: 0;
+    }
+
+    .driveledger-tab .nav-link.active {
+        background-color: var(--dl-surface-2);
+    }
+
+    .driveledger-tab .nav-link.active::after {
+        content: "";
+        position: absolute;
+        left: -0.4rem;
+        top: 22%;
+        bottom: 22%;
+        width: 3px;
+        border-radius: 999px;
+        background: var(--dl-gradient);
+    }
+
+    /* settings + user account pin to the sidebar bottom */
+    .driveledger-tab > .nav-item.ms-auto {
+        margin-top: auto !important;
+        margin-left: 0 !important;
+        border-top: 1px solid var(--dl-border);
+        padding-top: 0.5rem;
+    }
+
+    /* content shifts right of the sidebar */
+    body:has(.driveledger-navbar-container) .driveledger-body-container {
+        width: auto;
+        max-width: none;
+        margin-left: var(--dl-sidebar-w);
+        margin-right: 0;
+        padding: 1.5rem 2rem 2rem;
+    }
+
+    body:has(.driveledger-navbar-container) .sticky-top-nav { top: 0; }
+
+    body:has(.driveledger-navbar-container) .vehicleTabPane {
+        height: calc(100dvh - 3rem);
+    }
+
+    body:has(.dl-page-header) .driveledger-body-container { padding-top: 1rem; }
+
+    body:has(.dl-page-header) .vehicleTabPane {
+        height: calc(100dvh - 7.75rem);
+    }
+
+    /* page header (e.g. vehicle identity) */
+    .dl-page-header {
+        margin-left: var(--dl-sidebar-w);
+        padding: 1.1rem 2rem 0.85rem;
+        border-bottom: 1px solid var(--dl-border);
+        background-color: var(--dl-bg);
+    }
+}
+
+/* ---- mobile: page header slots below the fixed top bar ---- */
+@media (max-width: 575px) {
+    .dl-page-header {
+        margin-top: calc(48px + 2.5rem);
+        padding: 0.7rem 1rem 0.55rem;
+        border-bottom: 1px solid var(--dl-border);
+    }
+
+    body:has(.dl-page-header) .driveledger-body-container {
+        padding-top: 0.75rem;
+    }
+
+    body:has(.dl-page-header) .vehicleTabPane {
+        height: calc(100dvh - 48px - 6rem);
+    }
+}
+
+.dl-page-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--dl-text);
 }
 
 /* mobile slide-in nav */
@@ -944,6 +1089,76 @@ body:has(.dl-auth-bg) {
     right: 0;
     height: 3px;
     background: var(--dl-gradient);
+}
+
+/* ---------------------------------------------------------------------------
+   15a. Content architecture: section cards, stat tiles, page heads
+   ------------------------------------------------------------------------- */
+.dl-settings-head { margin: 0.25rem 0 1rem; }
+.dl-settings-head h4 { font-weight: 650; letter-spacing: -0.015em; }
+
+.dl-settings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1rem;
+    align-items: start;
+    margin-bottom: 1.75rem;
+}
+
+.dl-card {
+    background-color: var(--dl-surface);
+    border: 1px solid var(--dl-border);
+    border-radius: var(--dl-radius-lg);
+    box-shadow: var(--dl-shadow-xs);
+    padding: 1.1rem 1.25rem;
+    min-width: 0;
+}
+
+.dl-card-title {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--dl-text-secondary);
+    margin-bottom: 0.65rem;
+}
+
+.dl-card-wide { grid-column: 1 / -1; }
+
+.dl-setting-row { padding-block: 0.3rem; }
+
+.dl-card .list-group-flush .list-group-item {
+    padding-left: 0;
+    padding-right: 0;
+    background-color: transparent;
+}
+
+/* dashboard stat tiles */
+.dl-stat-tile {
+    background-color: var(--dl-surface);
+    border: 1px solid var(--dl-border);
+    border-radius: var(--dl-radius-lg);
+    box-shadow: var(--dl-shadow-xs);
+    padding: 0.9rem 1.1rem;
+    height: 100%;
+}
+
+.dl-stat-value {
+    font-size: 1.35rem;
+    font-weight: 650;
+    letter-spacing: -0.015em;
+    color: var(--dl-text);
+    font-variant-numeric: tabular-nums;
+}
+
+.dl-stat-label {
+    font-size: 0.8125rem;
+    color: var(--dl-text-secondary);
+    margin-top: 0.1rem;
+}
+
+/* date cells must never truncate */
+.table th[data-column="date"],
+.table td[data-column="date"] {
+    min-width: 7.25rem;
 }
 
 /* ---------------------------------------------------------------------------

@@ -1,4 +1,9 @@
 ﻿@using CarCareTracker.Helper
+@inject IConfigHelper config
+@inject ITranslationHelper translator
+@{
+    var calendarUserLanguage = config.GetUserConfig(User).UserLanguage;
+}
 @model List<ReminderRecordViewModel>
 <script>
     var eventDates = [];
@@ -8,6 +13,9 @@
         @:eventDates.push({ id: @reminderRecord.Id, date: decodeHTMLEntities('@StaticHelper.GetEpochFromDateTime(reminderRecord.Date)'), description: decodeHTMLEntities('@reminderRecord.Description'), urgency: decodeHTMLEntities('@reminderRecord.Urgency.ToString()') });
     }
 </script>
+<div class="dl-settings-head">
+    <h4 class="mb-0">@translator.Translate(calendarUserLanguage, "Calendar")</h4>
+</div>
 <div class="row vehicleDetailTabContainer">
     <div class="col-12 reminderCalendarView">
         <div class="reminderCalendarViewContent" style="height:60vh;">

@@ -37,7 +37,7 @@
                     @if(userConfig.ShowVehicleThumbnail) {
                         <img src="@Model.ImageLocation" class="driveledger-vehicle-logo @(string.IsNullOrWhiteSpace(Model.SoldDate) ? "" : "sold")" />
                     } else {
-                        <img src="@config.GetSmallLogoUrl()" class="driveledger-logo" />
+                        <img src="@config.GetLogoUrl()" class="driveledger-logo" />
                     }
                 </div>
                 <ul class="nav nav-tabs driveledger-tab flex-grow-1" id="vehicleTab" role="tablist">
@@ -131,13 +131,19 @@
                         </ul>
                     </li>
                 </ul>
-                <span style="cursor:pointer;" onclick="editVehicle(@Model.Id)" class="text-truncate"><span class="lead">@($"{Model.Year} {Model.Make} {Model.Model}")<small class="text-body-secondary">@($"(#{StaticHelper.GetVehicleIdentifier(Model)})")</small></span><span class="ms-2 driveledger-tab"><i class="bi bi-pencil-square"></i></span></span>
                 <div class="driveledger-navbar-button">
                     <button type="button" class="btn btn-adaptive" onclick="showMobileNav()"><i class="bi bi-list driveledger-menu-icon"></i></button>
                 </div>
             </div>
         </div>
         <hr />
+    </div>
+    <div class="dl-page-header hideOnPrint">
+        <span style="cursor:pointer;" onclick="editVehicle(@Model.Id)" class="text-truncate d-inline-flex align-items-center">
+            <span class="dl-page-title">@($"{Model.Year} {Model.Make} {Model.Model}")</span>
+            <small class="text-body-secondary ms-2">@($"#{StaticHelper.GetVehicleIdentifier(Model)}")</small>
+            <span class="ms-2 text-body-secondary"><i class="bi bi-pencil-square"></i></span>
+        </span>
     </div>
 }
 <div class="driveledger-mobile-nav" onclick="hideMobileNav()">
