@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="wwwroot/defaults/lubelogger_logo_small.png" alt="DriveLedger logo" width="96" height="96">
+  <img src="wwwroot/defaults/driveledger_logo_small.png" alt="DriveLedger logo" width="96" height="96">
 </p>
 
 <h1 align="center">DriveLedger</h1>

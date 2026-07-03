@@ -45,6 +45,14 @@ complete visual redesign and rebranding.
 - `docker-compose.yml` now builds the image locally (`build: .`, tagged
   `driveledger:latest`) since DriveLedger does not publish a container image.
 - Settings About section credits the upstream LubeLogger project and links to it.
+- The app reports version 1.0.0 (DriveLedger versioning) and the update check
+  (`/api/version?checkForUpdate=true`) now queries DriveLedger releases instead
+  of upstream LubeLogger releases.
+- Branding asset files renamed from `lubelogger_*` to `driveledger_*` (all
+  references updated: layout, PWA manifest, About page, defaults in
+  `StaticHelper`); unused upstream `hargata_logo*.png` files removed.
+- Outgoing webhook notifications (Discord format) now post as "DriveLedger"
+  with the DriveLedger avatar.
 
 ### Unchanged (by design)
 

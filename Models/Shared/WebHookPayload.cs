@@ -22,9 +22,9 @@ namespace CarCareTracker.Models
     }
     public class DiscordWebHook
     {
-        public string Username { get { return "LubeLogger"; } }
+        public string Username { get { return "DriveLedger"; } }
         [JsonPropertyName("avatar_url")]
-        public string AvatarUrl { get { return "https://hargata.github.io/hargata/lubelogger_logo_small.png"; } }
+        public string AvatarUrl { get { return "https://raw.githubusercontent.com/KronigDev/DriveLedger/main/wwwroot/defaults/driveledger_logo_small.png"; } }
         public string Content { get; set; } = "";
         public static DiscordWebHook FromWebHookPayload(WebHookPayload webHookPayload)
         {
