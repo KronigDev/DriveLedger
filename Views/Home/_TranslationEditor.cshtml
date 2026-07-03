@@ -6,7 +6,7 @@
 @{
     var userConfig = config.GetUserConfig(User);
     var userLanguage = userConfig.UserLanguage;
-    bool showDelete = bool.Parse(serverConfig["LUBELOGGER_TRANSLATOR"] ?? "false");
+    bool showDelete = bool.Parse(serverConfig["DRIVELEDGER_TRANSLATOR"] ?? "false");
 }
 <div class="modal-header">
     <h5 class="modal-title" id="translationEditorModalLabel">@translator.Translate(userLanguage, "Translation Editor")</h5>

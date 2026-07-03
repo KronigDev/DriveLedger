@@ -17,14 +17,14 @@
     <script src="~/lib/signalr/signalr.min.js"></script>
 }
 @section Nav {
-    <div class="container-fluid lubelogger-navbar-container frosted hideOnPrint">
+    <div class="container-fluid driveledger-navbar-container frosted hideOnPrint">
         <div class="row mt-2">
-            <div class="d-flex lubelogger-navbar">
+            <div class="d-flex driveledger-navbar">
                 <div class="me-2" style="cursor:pointer;" onclick="returnToGarage()">
-                    <img src="@config.GetSmallLogoUrl()" class="lubelogger-logo lubelogger-tab" />
-                    <img src="@config.GetLogoUrl()" class="lubelogger-logo lubelogger-mobile-nav-show" />
+                    <img src="@config.GetSmallLogoUrl()" class="driveledger-logo driveledger-tab" />
+                    <img src="@config.GetLogoUrl()" class="driveledger-logo driveledger-mobile-nav-show" />
                 </div>
-                <ul class="nav nav-tabs lubelogger-tab flex-grow-1" id="homeTab" role="tablist">
+                <ul class="nav nav-tabs driveledger-tab flex-grow-1" id="homeTab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link resizable-nav-link" id="garage-tab" data-bs-toggle="tab" data-bs-target="#garage-tab-pane" type="button" role="tab"><i class="bi bi-car-front"></i><span class="ms-2">@translator.Translate(userLanguage, "Garage")</span></button>
                     </li>
@@ -100,15 +100,15 @@
                         </li>
                     }
                 </ul>
-                <div class="lubelogger-navbar-button">
-                    <button type="button" class="btn btn-adaptive" onclick="showMobileNav()"><i class="bi bi-list lubelogger-menu-icon"></i></button>
+                <div class="driveledger-navbar-button">
+                    <button type="button" class="btn btn-adaptive" onclick="showMobileNav()"><i class="bi bi-list driveledger-menu-icon"></i></button>
                 </div>
             </div>
         </div>
         <hr />
     </div>
 }
-<div class="lubelogger-mobile-nav" onclick="hideMobileNav()">
+<div class="driveledger-mobile-nav" onclick="hideMobileNav()">
     <ul class="navbar-nav" id="homeTab" role="tablist">
         <li class="nav-item d-flex" role="presentation">
             <button class="nav-link flex-grow-1 text-start" id="garage-tab" data-bs-toggle="tab" data-bs-target="#garage-tab-pane" type="button" role="tab"><span class="ms-2 display-3"><i class="bi bi-car-front me-2"></i>@translator.Translate(userLanguage, "Garage")</span></button>

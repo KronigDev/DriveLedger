@@ -2,7 +2,9 @@
 
 services:
   app:
-    image: ghcr.io/hargata/lubelogger:latest
+    # DriveLedger has no published container image (yet) — build it locally.
+    build: .
+    image: driveledger:latest
     restart: unless-stopped
     # volumes used to keep data persistent
     volumes:
@@ -21,13 +23,13 @@ services:
       # define network for traefik<>app communication
       traefik.docker.network: traefik-ingress
       ## HTTP Routers
-      traefik.http.routers.lubelogger.entrypoints: https
-      traefik.http.routers.lubelogger.rule: Host(`lubelog.mydomain.tld`)
+      traefik.http.routers.driveledger.entrypoints: https
+      traefik.http.routers.driveledger.rule: Host(`driveledger.mydomain.tld`)
       ## Middlewares
-      #traefik.http.routers.lubelogger.middlewares: authentik@docker
+      #traefik.http.routers.driveledger.middlewares: authentik@docker
       # none
       ## HTTP Services
-      traefik.http.services.lubelogger.loadbalancer.server.port: 8080
+      traefik.http.services.driveledger.loadbalancer.server.port: 8080
 
 volumes:
   data:

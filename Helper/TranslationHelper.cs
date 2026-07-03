@@ -29,7 +29,7 @@ namespace CarCareTracker.Helper
             {
                 return text;
             }
-            bool create = bool.Parse(_config["LUBELOGGER_TRANSLATOR"] ?? "false");
+            bool create = bool.Parse(_config["DRIVELEDGER_TRANSLATOR"] ?? "false");
             //transform input text into key.
             string translationKey = text.Replace(" ", "_");
             var translationFilePath = userLanguage == "en_US" ? _fileHelper.GetFullFilePath($"/defaults/en_US.json") : _fileHelper.GetFullFilePath($"/translations/{userLanguage}.json", false);
@@ -129,7 +129,7 @@ namespace CarCareTracker.Helper
         }
         public OperationResponse SaveTranslation(string userLanguage, Dictionary<string, string> translations)
         {
-            bool create = bool.Parse(_config["LUBELOGGER_TRANSLATOR"] ?? "false");
+            bool create = bool.Parse(_config["DRIVELEDGER_TRANSLATOR"] ?? "false");
             bool isDefaultLanguage = userLanguage == "en_US";
             if (isDefaultLanguage && !create)
             {

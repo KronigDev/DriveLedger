@@ -5,18 +5,20 @@ services:
     image: postgres:18
     restart: unless-stopped
     environment:
-      POSTGRES_USER: "lubelogger"
-      POSTGRES_PASSWORD: "lubepass"
-      POSTGRES_DB: "lubelogger"
+      POSTGRES_USER: "driveledger"
+      POSTGRES_PASSWORD: "drivepass"
+      POSTGRES_DB: "driveledger"
     volumes:
       - postgres:/var/lib/postgresql/
       - /etc/localtime:/etc/localtime:ro
 
   app:
-    image: ghcr.io/hargata/lubelogger:latest
+    # DriveLedger has no published container image (yet) — build it locally.
+    build: .
+    image: driveledger:latest
     restart: unless-stopped
     environment:
-      POSTGRES_CONNECTION: "Host=postgres:5432;Username=lubelogger;Password=lubepass;Database=lubelogger;"
+      POSTGRES_CONNECTION: "Host=postgres:5432;Username=driveledger;Password=drivepass;Database=driveledger;"
     # volumes used to keep data persistent
     volumes:
       - data:/App/data

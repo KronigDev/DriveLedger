@@ -35,7 +35,7 @@ else
     <div class="no-top-pad container d-flex align-items-center justify-content-center dl-auth-bg" style="height:100dvh">
         <div class="border rounded shadow p-5 dl-auth-card">
             <div class="dl-auth-inner">
-                <img src="@config.GetLogoUrl()" class="lubelogger-logo" />
+                <img src="@config.GetLogoUrl()" class="driveledger-logo" />
                 <div class="form-group">
                     <label for="inputToken" class="@(string.IsNullOrWhiteSpace(Model.Token) ? "" : "d-none")">@translator.Translate(userLanguage, "Token")</label>
                     @if (openRegistrationEnabled && string.IsNullOrWhiteSpace(Model.Token))

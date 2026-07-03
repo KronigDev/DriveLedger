@@ -35,8 +35,8 @@ jobs:
         with:
           context: workflow
           images: |
-            hargata/lubelogger
-            ghcr.io/hargata/lubelogger
+            kronigdev/driveledger
+            ghcr.io/kronigdev/driveledger
           tags: |
             type=edge,branch=main
             type=ref,event=tag

@@ -248,56 +248,56 @@ html {
     background-color: var(--bs-primary-bg-subtle, #0d6efd);
 }
 
-.lubelogger-navbar-container {
+.driveledger-navbar-container {
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1021;
 }
 
-.lubelogger-navbar {
+.driveledger-navbar {
     align-items: center;
 }
 
-.lubelogger-tab {
+.driveledger-tab {
     border: none;
 }
 
-    .lubelogger-tab .nav-link {
+    .driveledger-tab .nav-link {
         border: none;
     }
 
-        .lubelogger-tab .nav-link.active {
+        .driveledger-tab .nav-link.active {
             background-color: transparent;
         }
 
 /*Media Queries*/
 @media (max-width: 575px) {
-    .lubelogger-tab {
+    .driveledger-tab {
         display: none;
     }
 
-    .lubelogger-navbar {
+    .driveledger-navbar {
         justify-content: space-between;
     }
 
-    .lubelogger-navbar-button {
+    .driveledger-navbar-button {
         display: flex;
         align-items: center;
     }
 
-        .lubelogger-navbar-button > button {
+        .driveledger-navbar-button > button {
             padding: 0;
             font-size: 2rem;
         }
 
-    .lubelogger-menu-icon {
+    .driveledger-menu-icon {
         display: inline-block;
         width: 1.5em;
         height: 1.5em;
     }
 
-    .lubelogger-mobile-nav {
+    .driveledger-mobile-nav {
         background-color: var(--bs-body-bg);
         height: 100dvh;
         width: 100%;
@@ -310,19 +310,19 @@ html {
         overflow-y: auto;
     }
 
-    .lubelogger-mobile-nav-show {
+    .driveledger-mobile-nav-show {
         display: block;
     }
 
-    .lubelogger-mobile-nav.lubelogger-mobile-nav-show {
+    .driveledger-mobile-nav.driveledger-mobile-nav-show {
         animation: slidefromright .25s;
     }
 
-    .lubelogger-mobile-nav > ul > li > .nav-link.active {
+    .driveledger-mobile-nav > ul > li > .nav-link.active {
         color: var(--dl-link, #6ea8fe);
     }
 
-    .lubelogger-record-add {
+    .driveledger-record-add {
         display: none;
     }
 
@@ -338,11 +338,11 @@ html {
     .swimlane-header {
         display:none;
     }
-    .ll-responsive-table thead {
+    .dl-responsive-table thead {
         display: none;
     }
 
-    .ll-responsive-table tbody tr {
+    .dl-responsive-table tbody tr {
         flex-direction: column;
         border-radius: var(--bs-border-radius) !important;
         border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
@@ -350,15 +350,15 @@ html {
         margin-top: 0.5rem;
         box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
     }
-    .ll-responsive-table tbody tr:hover {
+    .dl-responsive-table tbody tr:hover {
         color: var(--bs-emphasis-color);
         background-color: rgba(var(--bs-emphasis-color-rgb), 0.075) !important;
     }
-        .ll-responsive-table tbody tr.table-active {
+        .dl-responsive-table tbody tr.table-active {
             color: var(--bs-emphasis-color);
             background-color: rgba(var(--bs-emphasis-color-rgb), 0.1);
         }
-    .ll-responsive-table tbody td {
+    .dl-responsive-table tbody td {
         width: initial;
         border-bottom-width: 0px;
         display: flex;
@@ -368,26 +368,26 @@ html {
         white-space: normal;
         word-break: break-all;
     }
-    .ll-responsive-table tbody td::before {
+    .dl-responsive-table tbody td::before {
         content: attr(data-label);
         font-weight: 600;
     }
 }
 
 @media(min-width: 576px) {
-    .lubelogger-mobile-nav-show {
+    .driveledger-mobile-nav-show {
         display: none;
     }
 
-    .lubelogger-mobile-nav {
+    .driveledger-mobile-nav {
         display: none;
     }
 
-    .lubelogger-navbar-button {
+    .driveledger-navbar-button {
         display: none;
     }
 
-    .lubelogger-record-nav {
+    .driveledger-record-nav {
         display: none;
     }
     .swimlane-mobile-nav {
@@ -619,7 +619,7 @@ html[data-bs-theme="light"] .api-method:hover {
     padding: 0rem;
 }
 
-.lubelogger-logo {
+.driveledger-logo {
     height: 48px;
     min-width: 48px;
     max-width: 204px;
@@ -627,7 +627,7 @@ html[data-bs-theme="light"] .api-method:hover {
     pointer-events: none;
 }
 
-.lubelogger-logo-sticker {
+.driveledger-logo-sticker {
     height: 6rem;
     width: auto;
     object-fit: scale-down;
@@ -638,7 +638,7 @@ html[data-bs-theme="light"] .api-method:hover {
     display: none;
 }
 
-.lubelogger-report-banner {
+.driveledger-report-banner {
     border-top: thin solid black;
     text-align: center;
 }
@@ -651,7 +651,7 @@ html[data-bs-theme="light"] .api-method:hover {
     top: 15%
 }
 
-.lubelogger-vehicle-logo {
+.driveledger-vehicle-logo {
     height: 48px;
     width: 48px;
     border-radius: 50%;
@@ -659,11 +659,11 @@ html[data-bs-theme="light"] .api-method:hover {
     pointer-events: none;
 }
 
-    .lubelogger-vehicle-logo.sold {
+    .driveledger-vehicle-logo.sold {
         filter: grayscale(100%);
     }
 
-.lubelogger-uploader {
+.driveledger-uploader {
     border: 1px dashed rgb(73,80,87);
     border-radius: 0.375rem;
     cursor: pointer;
@@ -671,25 +671,25 @@ html[data-bs-theme="light"] .api-method:hover {
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
-    .lubelogger-uploader:hover {
+    .driveledger-uploader:hover {
         background-color: var(--bs-secondary-bg) !important;
         color: var(--bs-secondary-color) !important;
         border-style: solid;
     }
 
-.lubelogger-link-uploader {
+.driveledger-link-uploader {
     position: absolute;
     right: 0;
     top: 0;
 }
 
-    .lubelogger-link-uploader > .btn {
+    .driveledger-link-uploader > .btn {
         border-bottom-left-radius: 0;
         border-top-left-radius: 0;
         border-bottom-right-radius: 0;
     }
 
-.lubelogger-uploader.solid {
+.driveledger-uploader.solid {
     background-color: var(--bs-secondary-bg) !important;
     color: var(--bs-secondary-color) !important;
     border-style: solid;
@@ -728,7 +728,7 @@ html[data-bs-theme="light"] .frosted {
     -webkit-backdrop-filter: blur(10px);
 }
 
-.lubelogger-body-container {
+.driveledger-body-container {
     padding-top: calc(48px + 2.5rem);
     min-height: 100dvh;
 }
@@ -799,10 +799,10 @@ html[data-bs-theme="dark"] .swal2-validation-message {
     height: calc(100dvh - 48px - 2.5rem);
 }
 
-.lubelogger-record-nav .nav-no-copy {
+.driveledger-record-nav .nav-no-copy {
     display: none;
 }
-.lubelogger-record-nav {
+.driveledger-record-nav {
     border-top: 1px solid;
     border-top-color: var(--bs-border-color);
 }

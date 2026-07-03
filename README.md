@@ -23,7 +23,7 @@
 
 ## What's different from LubeLogger?
 
-Purely the looks. DriveLedger keeps LubeLogger's features, data model, API and configuration untouched and adds:
+Purely the looks and the name. DriveLedger keeps LubeLogger's features, data model and API untouched and adds:
 
 - A complete design system built on CSS custom properties: consistent color scales, typography, spacing, radii and shadows across every page.
 - Fully maintained **light and dark themes**, including charts, dialogs, date pickers and the mobile UI.
@@ -31,7 +31,7 @@ Purely the looks. DriveLedger keeps LubeLogger's features, data model, API and c
 - Accessible, colorblind-checked chart palettes and WCAG AA checked interactive colors.
 - Fresh branding: logo, favicons, PWA icons and splash screen.
 
-Because functional identifiers were deliberately left alone (environment variables such as `LUBELOGGER_*`, config keys, database schema, cookie names, API routes), DriveLedger is a **drop-in replacement** for an existing LubeLogger deployment: point it at the same data volume and config and it just works.
+The database schema, uploaded files and API routes are identical to upstream, so an existing LubeLogger **data volume works as-is** with DriveLedger. Note that the optional environment variables were rebranded from `LUBELOGGER_*` to `DRIVELEDGER_*` (same names otherwise); if you used any of them, rename them once when migrating.
 
 ## Features
 
@@ -81,13 +81,13 @@ The app starts on http://localhost:5000 and creates its `data/` folder on first 
 
 ## Configuration
 
-DriveLedger is configured exactly like LubeLogger. All settings, environment variables (including the `LUBELOGGER_*` family, kept for drop-in compatibility) and reverse-proxy setups are documented in the upstream docs: [docs.lubelogger.com](https://docs.lubelogger.com).
+DriveLedger is configured like LubeLogger. All settings and reverse-proxy setups are documented in the upstream docs: [docs.lubelogger.com](https://docs.lubelogger.com). The only difference: environment variables use the `DRIVELEDGER_*` prefix instead of `LUBELOGGER_*` (e.g. `DRIVELEDGER_MOTD`, `DRIVELEDGER_LOGO_URL`).
 
 Highlights:
 
 - `POSTGRES_CONNECTION` switches storage from LiteDB to PostgreSQL.
 - Authentication is off by default; enable it in Settings or via config.
-- `LUBELOGGER_LOGO_URL` / `LUBELOGGER_LOGO_SMALL_URL` let you override the bundled logo.
+- `DRIVELEDGER_LOGO_URL` / `DRIVELEDGER_LOGO_SMALL_URL` let you override the bundled logo.
 
 ## Attribution
 

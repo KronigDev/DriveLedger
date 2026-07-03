@@ -307,12 +307,12 @@ function deleteTranslationKey(e) {
 //tabs reorder
 function showTabReorderModal() {
     //reorder the list items based on the CSS attribute
-    var sortedOrderedTabs = $(".lubelog-tab-groups > li").toArray().sort((a, b) => {
+    var sortedOrderedTabs = $(".driveledger-tab-groups > li").toArray().sort((a, b) => {
         var currentVal = $(a).css("order");
         var nextVal = $(b).css("order");
         return currentVal - nextVal;
     });
-    $(".lubelog-tab-groups").html(sortedOrderedTabs);
+    $(".driveledger-tab-groups").html(sortedOrderedTabs);
     $("#tabReorderModal").modal('show');
     bindTabReorderEvents();
 }
@@ -323,7 +323,7 @@ var tabDraggedToReorder = undefined;
 function handleTabDragStart(e) {
     tabDraggedToReorder = $(e.target).closest('.list-group-item');
     //clear out order attribute.
-    $(".lubelog-tab-groups > li").map((index, elem) => {
+    $(".driveledger-tab-groups > li").map((index, elem) => {
         $(elem).css('order', 0);
     })
 }
@@ -348,15 +348,15 @@ function handleTabDragOver(e) {
     }
 }
 function bindTabReorderEvents() {
-    $(".lubelog-tab-groups > li").on('dragstart', event => {
+    $(".driveledger-tab-groups > li").on('dragstart', event => {
         handleTabDragStart(event);
     });
-    $(".lubelog-tab-groups > li").on('dragover', event => {
+    $(".driveledger-tab-groups > li").on('dragover', event => {
         handleTabDragOver(event);
     });
-    $(".lubelog-tab-groups > li").on('dragend', event => {
+    $(".driveledger-tab-groups > li").on('dragend', event => {
         //reset order attribute
-        $(".lubelog-tab-groups > li").map((index, elem) => {
+        $(".driveledger-tab-groups > li").map((index, elem) => {
             $(elem).css('order', $(elem).index());
         })
     });
@@ -364,11 +364,11 @@ function bindTabReorderEvents() {
 function getTabOrder() {
     var tabOrderArray = [];
     //check if any tabs have -1 order
-    var resetTabs = $(".lubelog-tab-groups > li").filter((index, elem) => $(elem).css('order') == -1).length > 0;
+    var resetTabs = $(".driveledger-tab-groups > li").filter((index, elem) => $(elem).css('order') == -1).length > 0;
     if (resetTabs) {
         return tabOrderArray; //return empty array.
     }
-    var sortedOrderedTabs = $(".lubelog-tab-groups > li").toArray().sort((a, b) => {
+    var sortedOrderedTabs = $(".driveledger-tab-groups > li").toArray().sort((a, b) => {
         var currentVal = $(a).css("order");
         var nextVal = $(b).css("order");
         return currentVal - nextVal;
@@ -381,7 +381,7 @@ function getTabOrder() {
 }
 function resetTabOrder() {
     //set all orders to -1
-    $(".lubelog-tab-groups > li").map((index, elem) => {
+    $(".driveledger-tab-groups > li").map((index, elem) => {
         $(elem).css('order', -1);
     })
     updateSettings();

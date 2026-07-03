@@ -471,7 +471,7 @@ html[data-bs-theme="light"] .btn-adaptive {
 /* ---------------------------------------------------------------------------
    6. Navbar, tabs, dropdowns
    ------------------------------------------------------------------------- */
-.lubelogger-navbar-container.frosted {
+.driveledger-navbar-container.frosted {
     background-color: var(--dl-frosted-bg);
     backdrop-filter: blur(14px) saturate(1.6);
     -webkit-backdrop-filter: blur(14px) saturate(1.6);
@@ -479,7 +479,7 @@ html[data-bs-theme="light"] .btn-adaptive {
     box-shadow: none;
 }
 
-.lubelogger-tab .nav-link {
+.driveledger-tab .nav-link {
     color: var(--dl-text-secondary);
     font-weight: 500;
     border-radius: var(--dl-radius-sm);
@@ -487,17 +487,17 @@ html[data-bs-theme="light"] .btn-adaptive {
     transition: color var(--dl-transition), background-color var(--dl-transition);
 }
 
-.lubelogger-tab .nav-link:hover {
+.driveledger-tab .nav-link:hover {
     color: var(--dl-text);
     background-color: var(--dl-surface-2);
 }
 
-.lubelogger-tab .nav-link.active {
+.driveledger-tab .nav-link.active {
     color: var(--dl-text);
     font-weight: 600;
 }
 
-.lubelogger-tab .nav-link.active::after {
+.driveledger-tab .nav-link.active::after {
     content: "";
     position: absolute;
     left: 0.55rem;
@@ -509,9 +509,9 @@ html[data-bs-theme="light"] .btn-adaptive {
 }
 
 /* mobile slide-in nav */
-.lubelogger-mobile-nav { border-left: 1px solid var(--dl-border); }
-.lubelogger-mobile-nav > ul > li > .nav-link { color: var(--dl-text-secondary); }
-.lubelogger-mobile-nav > ul > li > .nav-link.active { color: var(--dl-link); }
+.driveledger-mobile-nav { border-left: 1px solid var(--dl-border); }
+.driveledger-mobile-nav > ul > li > .nav-link { color: var(--dl-text-secondary); }
+.driveledger-mobile-nav > ul > li > .nav-link.active { color: var(--dl-link); }
 
 /* dropdown menus */
 .dropdown-menu {
@@ -643,7 +643,7 @@ html[data-bs-theme="light"] .garage-context-menu {
 
 /* mobile card-table transform keeps working; refine its chrome */
 @media (max-width: 575px) {
-    .ll-responsive-table tbody tr {
+    .dl-responsive-table tbody tr {
         background-color: var(--dl-surface);
         box-shadow: var(--dl-shadow-sm) !important;
         border-radius: var(--dl-radius-lg) !important;
@@ -741,15 +741,15 @@ label { font-weight: 500; }
 .progress-bar { background-image: var(--dl-gradient); }
 
 /* file drop zone */
-.lubelogger-uploader {
+.driveledger-uploader {
     border: 1px dashed var(--dl-border-strong);
     border-radius: var(--dl-radius-lg);
     color: var(--dl-text-secondary);
 }
-.lubelogger-uploader:hover { border-color: var(--dl-brand-blue); }
+.driveledger-uploader:hover { border-color: var(--dl-brand-blue); }
 
 /* report banners for print keep neutral ink */
-.lubelogger-report-banner { border-top: 1px solid var(--dl-border-strong); color: var(--dl-text-secondary); }
+.driveledger-report-banner { border-top: 1px solid var(--dl-border-strong); color: var(--dl-text-secondary); }
 
 /* frosted helper (navbar/sticky headers) */
 html[data-bs-theme="dark"] .frosted,
@@ -918,7 +918,7 @@ body:has(.dl-auth-bg) {
     width: min(300px, 78vw);
 }
 
-.dl-auth-inner > .lubelogger-logo {
+.dl-auth-inner > .driveledger-logo {
     display: block;
     margin: 0 auto 1.25rem;
 }

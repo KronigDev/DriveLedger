@@ -476,13 +476,13 @@ function getAndValidateSelectedVehicle() {
     }
 }
 function showMobileNav() {
-    $(".lubelogger-mobile-nav").addClass("lubelogger-mobile-nav-show");
+    $(".driveledger-mobile-nav").addClass("driveledger-mobile-nav-show");
     //hide body scrollbar
     $("body").css('overflow-y', 'hidden');
     $("body").css('position', 'fixed'); //iOS SafariWebKit hack fix
 }
 function hideMobileNav() {
-    $(".lubelogger-mobile-nav").removeClass("lubelogger-mobile-nav-show");
+    $(".driveledger-mobile-nav").removeClass("driveledger-mobile-nav-show");
     //re-enable scrollbar.
     $("body").css('overflow-y', 'auto');
     $("body").css('position', ''); //iOS SafariWebKit hack fix
@@ -1938,16 +1938,16 @@ function toggleUploadFileBrowser() {
 }
 function handlePotentialFileDrop(event) {
     event.preventDefault();
-    $('.lubelogger-uploader').addClass('solid');
+    $('.driveledger-uploader').addClass('solid');
 }
 function handleNoFileDrop(event) {
     event.preventDefault();
-    $('.lubelogger-uploader').removeClass('solid');
+    $('.driveledger-uploader').removeClass('solid');
 }
 function handleEndFileDrop(event) {
     event.preventDefault();
     event.stopPropagation();
-    $('.lubelogger-uploader').removeClass('solid');
+    $('.driveledger-uploader').removeClass('solid');
     let recordType = getUploaderId().uploaderId;
     let clipboardFiles = event.dataTransfer.files;
     let acceptableFileFormats = $(`#${recordType}`).attr("accept");
@@ -1973,26 +1973,26 @@ function bindNavBarResize() {
         let targetElem = $(elems[0].target);
         checkNavBarOverflow();
     });
-    resizeObserver.observe(document.querySelector('.lubelogger-navbar'));
+    resizeObserver.observe(document.querySelector('.driveledger-navbar'));
 }
 function checkNavBarOverflow() {
     //check height
-    $('.lubelogger-navbar > .lubelogger-tab > .nav-item').show();
+    $('.driveledger-navbar > .driveledger-tab > .nav-item').show();
     $('.nav-item-more > ul > li').hide(); //hide collapsed items
     //check if icons loaded
-    let iconWidth = `${$('.lubelogger-navbar > .lubelogger-tab > .nav-item .bi').width()}px`;
-    let iconFontSize = $('.lubelogger-navbar > .lubelogger-tab > .nav-item .bi').css('font-size');
+    let iconWidth = `${$('.driveledger-navbar > .driveledger-tab > .nav-item .bi').width()}px`;
+    let iconFontSize = $('.driveledger-navbar > .driveledger-tab > .nav-item .bi').css('font-size');
     const removeNavbarItems = () => {
-        let navbarHeight = $('.lubelogger-navbar').height();
+        let navbarHeight = $('.driveledger-navbar').height();
         if (navbarHeight > 48) {
             //get all elems in the nav
-            let sortedElems = $('.lubelogger-navbar > .lubelogger-tab > .nav-item:visible:not(".nav-item-persist")').toArray().sort((a, b) => {
+            let sortedElems = $('.driveledger-navbar > .driveledger-tab > .nav-item:visible:not(".nav-item-persist")').toArray().sort((a, b) => {
                 let orderA = $(a).css('order');
                 let orderB = $(b).css('order');
                 return orderA - orderB;
             });
             for (let i = sortedElems.length - 1; i > -1; i--) {
-                navbarHeight = $('.lubelogger-navbar').height();
+                navbarHeight = $('.driveledger-navbar').height();
                 if (navbarHeight > 48) {
                     $(sortedElems[i]).hide(); //hide elem.
                     let hiddenButtonId = $(sortedElems[i]).find('button').attr('id');
@@ -2091,7 +2091,7 @@ function checkSelectModeToggle() {
 function showDropDownForRecordNav(sender) {
     $(sender).off('hide.bs.dropdown');
     let tableRowsActive = $('.table tr.table-active');
-    let siblingContextMenu = $('.lubelogger-record-nav .record-dropdown');
+    let siblingContextMenu = $('.driveledger-record-nav .record-dropdown');
     if (!siblingContextMenu.hasClass('show')) {
         return;
     }
@@ -2101,18 +2101,18 @@ function showDropDownForRecordNav(sender) {
     }
     if (tableRowsActive.length == 0) {
         //clone menu items
-        let storedMenuItems = $('.lubelogger-record-add .record-dropdown > li');
+        let storedMenuItems = $('.driveledger-record-add .record-dropdown > li');
         storedMenuItems.map((index, elem) => {
             siblingContextMenu.append($(elem));
         });
         $(sender).on('hide.bs.dropdown', () => {
             if (siblingContextMenu.find('li').length > 0) {
                 siblingContextMenu.find('li').map((index, elem) => {
-                    $('.lubelogger-record-add .record-dropdown').append($(elem));
+                    $('.driveledger-record-add .record-dropdown').append($(elem));
                 })
             } else {
                 storedMenuItems.map((index, elem) => {
-                    $('.lubelogger-record-add .record-dropdown').append($(elem));
+                    $('.driveledger-record-add .record-dropdown').append($(elem));
                 })
             }
         });

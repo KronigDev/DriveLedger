@@ -67,52 +67,52 @@ namespace CarCareTracker.Helper
         }
         public string GetWebHookUrl()
         {
-            var webhook = CheckString("LUBELOGGER_WEBHOOK");
+            var webhook = CheckString("DRIVELEDGER_WEBHOOK");
             return webhook;
         }
         public bool GetCustomWidgetsEnabled()
         {
-            return CheckBool(CheckString("LUBELOGGER_CUSTOM_WIDGETS"));
+            return CheckBool(CheckString("DRIVELEDGER_CUSTOM_WIDGETS"));
         }
         public bool GetInvariantApi()
         {
-            return CheckBool(CheckString("LUBELOGGER_INVARIANT_API"));
+            return CheckBool(CheckString("DRIVELEDGER_INVARIANT_API"));
         }
         public bool GetWebSocketEnabled()
         {
-            return CheckBool(CheckString("LUBELOGGER_WEB_SOCKET"));
+            return CheckBool(CheckString("DRIVELEDGER_WEB_SOCKET"));
         }
         public bool GetResizeThumbnailEnabled()
         {
-            return CheckBool(CheckString("LUBELOGGER_RESIZE_THUMBNAIL"));
+            return CheckBool(CheckString("DRIVELEDGER_RESIZE_THUMBNAIL"));
         }
         public string GetMOTD()
         {
-            var motd = CheckString("LUBELOGGER_MOTD");
+            var motd = CheckString("DRIVELEDGER_MOTD");
             return motd;
         }
         public string GetServerDomain()
         {
-            var domain = CheckString("LUBELOGGER_DOMAIN");
+            var domain = CheckString("DRIVELEDGER_DOMAIN");
             return domain;
         }
         public string GetLocaleOverride()
         {
-            var locale = CheckString("LUBELOGGER_LOCALE_OVERRIDE");
+            var locale = CheckString("DRIVELEDGER_LOCALE_OVERRIDE");
             return locale;
         }
         public string GetLocaleDateTimeOverride()
         {
-            var locale = CheckString("LUBELOGGER_LOCALE_DT_OVERRIDE");
+            var locale = CheckString("DRIVELEDGER_LOCALE_DT_OVERRIDE");
             return locale;
         }
         public bool GetServerOpenRegistration()
         {
-            return CheckBool(CheckString("LUBELOGGER_OPEN_REGISTRATION"));
+            return CheckBool(CheckString("DRIVELEDGER_OPEN_REGISTRATION"));
         }
         public int GetAuthCookieLifeSpan()
         {
-            var lifespan = CheckString("LUBELOGGER_COOKIE_LIFESPAN", StaticHelper.DefaultCookieLifeSpan);
+            var lifespan = CheckString("DRIVELEDGER_COOKIE_LIFESPAN", StaticHelper.DefaultCookieLifeSpan);
             if (!string.IsNullOrWhiteSpace(lifespan) && int.TryParse(lifespan, out int lifespandays))
             {
                 if (lifespandays > 90) //max 90 days because that is the max lifetime of the DPAPI keys
@@ -156,7 +156,7 @@ namespace CarCareTracker.Helper
         }
         public bool GetAutomatedEventsEnabled()
         {
-            return CheckBool(CheckString("LUBELOGGER_AUTO_EVENTS"));
+            return CheckBool(CheckString("DRIVELEDGER_AUTO_EVENTS"));
         }
         public NotificationConfig GetNotificationConfig()
         {
@@ -165,12 +165,12 @@ namespace CarCareTracker.Helper
         }
         public string GetLogoUrl()
         {
-            var logoUrl = CheckString("LUBELOGGER_LOGO_URL", StaticHelper.DefaultLogoPath);
+            var logoUrl = CheckString("DRIVELEDGER_LOGO_URL", StaticHelper.DefaultLogoPath);
             return logoUrl;
         }
         public string GetSmallLogoUrl()
         {
-            var logoUrl = CheckString("LUBELOGGER_LOGO_SMALL_URL", StaticHelper.DefaultSmallLogoPath);
+            var logoUrl = CheckString("DRIVELEDGER_LOGO_SMALL_URL", StaticHelper.DefaultSmallLogoPath);
             return logoUrl;
         }
         public string GetDefaultReminderEmail()
@@ -180,7 +180,7 @@ namespace CarCareTracker.Helper
         }
         public string GetAllowedFileUploadExtensions()
         {
-            var allowedFileExtensions = CheckString("LUBELOGGER_ALLOWED_FILE_EXTENSIONS", StaticHelper.DefaultAllowedFileExtensions);
+            var allowedFileExtensions = CheckString("DRIVELEDGER_ALLOWED_FILE_EXTENSIONS", StaticHelper.DefaultAllowedFileExtensions);
             return allowedFileExtensions;
         }
         public bool AuthenticateRootUser(string username, string password)

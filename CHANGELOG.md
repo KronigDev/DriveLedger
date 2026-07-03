@@ -32,11 +32,16 @@ complete visual redesign and rebranding.
 
 ### Changed
 
-- All user-visible "LubeLogger" strings now read "DriveLedger" (page titles, PWA name,
-  About section, report footers, email subject/body translations, API docs page,
-  console banner). Functional identifiers are untouched for drop-in compatibility:
-  `LUBELOGGER_*` environment variables, config keys, translation keys, cookie names,
-  database schema and API routes are identical to upstream.
+- All "LubeLogger" identifiers now read "DriveLedger": page titles, PWA name,
+  About section, report footers, email subjects/bodies (translation keys and
+  values), API docs page, console banner, internal CSS class names
+  (`lubelogger-*` is now `driveledger-*`, `ll-responsive-table` is now
+  `dl-responsive-table`, with all jQuery selectors updated in lockstep),
+  environment variables and config keys (`LUBELOGGER_*` is now `DRIVELEDGER_*`),
+  the iCal export `PRODID`, Docker/Traefik service names and the PostgreSQL
+  compose credentials. The database schema, uploaded-file layout and API routes
+  are identical to upstream, so existing data volumes keep working; only
+  configured `LUBELOGGER_*` environment variables need a one-time rename.
 - Restyled every view: navigation, garage grid, record tables, record modals, settings,
   calendar, planner kanban, kiosk mode, reports, login pages, admin and API docs pages.
 - Chart.js theming: brand-aligned categorical palette, status palette for reminder
@@ -53,10 +58,14 @@ complete visual redesign and rebranding.
   `StaticHelper`); unused upstream `hargata_logo*.png` files removed.
 - Outgoing webhook notifications (Discord format) now post as "DriveLedger"
   with the DriveLedger avatar.
+- Removed the upstream marketing-site sources from `docs/` (the folder now only
+  holds DriveLedger screenshots); removed unused upstream logo files.
 
 ### Unchanged (by design)
 
-- Controllers, business logic, models, database access, API routes and form behavior.
-- All element IDs, `data-*` attributes and functionally used CSS class names.
-- Existing translations keep working; non-English languages still download from the
-  upstream community translation repository.
+- Controllers, business logic, database access, API routes and form behavior.
+- All element IDs and `data-*` attributes.
+- Non-English languages still download from the upstream community translation
+  repository. Because the handful of email-related translation keys were
+  rebranded, those few strings fall back to English until the community files
+  carry the new keys; everything else stays fully translated.

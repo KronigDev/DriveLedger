@@ -51,8 +51,8 @@ function bindTabEvent() {
                 getVehicleCalendarEvents();
                 break;
         }
-        $(`.lubelogger-tab #${e.target.id}`).addClass('active');
-        $(`.lubelogger-mobile-nav #${e.target.id}`).addClass('active');
+        $(`.driveledger-tab #${e.target.id}`).addClass('active');
+        $(`.driveledger-mobile-nav #${e.target.id}`).addClass('active');
         if (e.relatedTarget != null) {
             switch (e.relatedTarget.id) { //clear out previous tabs with grids in them to help with performance
                 case "garage-tab":
@@ -68,8 +68,8 @@ function bindTabEvent() {
                     $("#calendar-tab-pane").html("");
                     break;
             }
-            $(`.lubelogger-tab #${e.relatedTarget.id}`).removeClass('active');
-            $(`.lubelogger-mobile-nav #${e.relatedTarget.id}`).removeClass('active');
+            $(`.driveledger-tab #${e.relatedTarget.id}`).removeClass('active');
+            $(`.driveledger-mobile-nav #${e.relatedTarget.id}`).removeClass('active');
         }
         setBrowserHistory('tab', getTabNameForURL(e.target.id));
         bindTabEvents(e.target.id);

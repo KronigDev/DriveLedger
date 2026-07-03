@@ -15,17 +15,17 @@ var builder = WebApplication.CreateBuilder(args);
 //Additional JsonFile
 builder.Configuration.AddJsonFile(StaticHelper.UserConfigPath, optional: true, reloadOnChange: true);
 builder.Configuration.AddJsonFile(StaticHelper.ServerConfigPath, optional: true, reloadOnChange: true);
-if (!string.IsNullOrWhiteSpace(builder.Configuration["LUBELOGGER_SECRETS_PATH"]))
+if (!string.IsNullOrWhiteSpace(builder.Configuration["DRIVELEDGER_SECRETS_PATH"]))
 {
-    builder.Configuration.AddKeyPerFile(builder.Configuration["LUBELOGGER_SECRETS_PATH"] ?? string.Empty, optional: true);
+    builder.Configuration.AddKeyPerFile(builder.Configuration["DRIVELEDGER_SECRETS_PATH"] ?? string.Empty, optional: true);
 }
 
-if (!string.IsNullOrWhiteSpace(builder.Configuration["LUBELOGGER_LOCALE_OVERRIDE"]))
+if (!string.IsNullOrWhiteSpace(builder.Configuration["DRIVELEDGER_LOCALE_OVERRIDE"]))
 {
-    var overrideCulture = new CultureInfo(builder.Configuration["LUBELOGGER_LOCALE_OVERRIDE"] ?? string.Empty);
-    if (!string.IsNullOrWhiteSpace(builder.Configuration["LUBELOGGER_LOCALE_DT_OVERRIDE"]))
+    var overrideCulture = new CultureInfo(builder.Configuration["DRIVELEDGER_LOCALE_OVERRIDE"] ?? string.Empty);
+    if (!string.IsNullOrWhiteSpace(builder.Configuration["DRIVELEDGER_LOCALE_DT_OVERRIDE"]))
     {
-        var overrideDTFormat = new CultureInfo(builder.Configuration["LUBELOGGER_LOCALE_DT_OVERRIDE"] ?? string.Empty);
+        var overrideDTFormat = new CultureInfo(builder.Configuration["DRIVELEDGER_LOCALE_DT_OVERRIDE"] ?? string.Empty);
         overrideCulture.DateTimeFormat = overrideDTFormat.DateTimeFormat;
     }
     CultureInfo.DefaultThreadCurrentCulture = overrideCulture;
@@ -112,7 +112,7 @@ builder.Services.AddSingleton<IVehicleLogic, VehicleLogic>();
 builder.Services.AddSingleton<INotificationLogic, NotificationLogic>();
 
 //configure automated event logic
-if (StaticHelper.CheckConfigBoolean(builder.Configuration, "LUBELOGGER_AUTO_EVENTS"))
+if (StaticHelper.CheckConfigBoolean(builder.Configuration, "DRIVELEDGER_AUTO_EVENTS"))
 {
     builder.Services.AddHostedService<AutomatedEventLogic>();
 }

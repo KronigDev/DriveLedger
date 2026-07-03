@@ -320,7 +320,7 @@ namespace CarCareTracker.Helper
         public static void InitMessage(IConfiguration config)
         {
             Console.WriteLine($"DriveLedger {VersionNumber}");
-            Console.WriteLine("Website: https://lubelogger.com");
+            Console.WriteLine("Website: https://github.com/KronigDev/DriveLedger");
             Console.WriteLine("Documentation: https://docs.lubelogger.com");
             Console.WriteLine("GitHub: https://github.com/KronigDev/DriveLedger");
             var mailConfig = config.GetSection("MailConfig").Get<MailConfig>();
@@ -332,7 +332,7 @@ namespace CarCareTracker.Helper
             {
                 Console.WriteLine("SMTP Not Configured");
             }
-            var motd = config["LUBELOGGER_MOTD"] ?? "Not Configured";
+            var motd = config["DRIVELEDGER_MOTD"] ?? "Not Configured";
             Console.WriteLine($"Message Of The Day: {motd}");
             if (string.IsNullOrWhiteSpace(CultureInfo.CurrentCulture.Name))
             {
@@ -920,7 +920,7 @@ namespace CarCareTracker.Helper
             //start the calendar item
             sb.AppendLine("BEGIN:VCALENDAR");
             sb.AppendLine("VERSION:2.0");
-            sb.AppendLine("PRODID:lubelogger.com");
+            sb.AppendLine("PRODID:DriveLedger");
             sb.AppendLine("CALSCALE:GREGORIAN");
             sb.AppendLine("METHOD:PUBLISH");
 
